@@ -1,12 +1,26 @@
+
 Package: UShorrorsite
-Title: What the Package Does (One Line, Title Case)
+Title: Ghosts in the Data: Mapping America’s Most Haunted Locations
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+     person("Namandeep", "Kaur", , "nsal0017@student.monash.edu", role = c("aut", "cre"))
+Description: This particular dataset contains nearly 11,000 records of haunted locations across the U.S., each describing a specific place reportedly associated with paranormal activity. Each row has details like where the spooky place is (city, state, and map points), a brief of the site, and type (e.g., inn, graveyard).
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.2.1
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    colorspace,
+    ggrepel,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    ggplot2,
+    shiny
