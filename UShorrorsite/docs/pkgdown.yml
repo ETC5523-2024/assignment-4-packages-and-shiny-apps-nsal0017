@@ -1,0 +1,9 @@
+pandoc: '3.2'
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  ushorror: ushorror.html
+last_built: 2024-10-27T03:24Z
+urls:
+  reference: https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-nsal0017/reference
+  article: https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-nsal0017/articles

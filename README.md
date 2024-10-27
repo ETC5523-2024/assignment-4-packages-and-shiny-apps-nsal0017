@@ -15,7 +15,7 @@ devtools::install_github("https://github.com/ETC5523-2024/assignment-4-packages-
 ```
 ## pkgdown site
 
-You can have a pkgdown site accessible from 
+You can have a pkgdown site accessible from <https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-nsal0017/>
 
 ## Shiny App Overview
 
