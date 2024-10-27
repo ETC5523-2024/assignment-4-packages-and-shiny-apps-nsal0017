@@ -1,23 +1,31 @@
-
 #' Calculate Proportions of Hauntings by Location
 #'
-#' @description This function takes a data frame of haunted locations
-#' and optionally a specified city, then calculates the proportion of hauntings
-#' for each location. If no city is specified, it calculates proportions for all cities.
+#' This function takes a data frame of haunted locations and, optionally, a specified city,
+#' then calculates the proportion of hauntings for each location. If no city is specified,
+#' it calculates proportions for all cities.
 #'
 #' @param data A data frame containing haunted location information, with columns for `city` and `location`.
 #' @param city (Optional) A character string specifying the city for which to calculate haunting proportions.
 #' If NULL, it calculates proportions across all cities.
+#'
+#' @return A data frame with columns:
+#'   \item{location}{The haunted location}
+#'   \item{city}{The specified city (if provided)}
+#'   \item{proportion}{The proportion of hauntings at each location, summing to 1 within each city}
+#'
 #' @examples
+#' # Create a sample haunted_data dataset
 #' haunted_data <- data.frame(
 #'   city = c("New York", "New York", "Boston", "Boston", "Boston"),
 #'   location = c("Castle", "Mansion", "Cemetery", "Old House", "Tunnel")
 #' )
+#'
+#' # Calculate proportions for Boston
 #' location_proportions(haunted_data, city = "Boston")
+#'
+#' # Calculate proportions across all cities
 #' location_proportions(haunted_data)
 #'
-#' @return A data frame with the `location`, `city`, and `proportion` of hauntings.
-#' The proportions add up to 1 within each city.
 #' @export
 location_proportions <- function(data, city = NULL) {
   if (!"city" %in% colnames(data) || !"location" %in% colnames(data)) {
@@ -35,5 +43,3 @@ location_proportions <- function(data, city = NULL) {
     mutate(proportion = n / sum(n)) %>%
     select(city, location, proportion)
 }
-
-
