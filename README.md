@@ -7,13 +7,16 @@ UShorrorsite is an R package that includes data and tools to explore haunted loc
 You can install the development version of UShorrorsite from GitHub with the following commands:
 
 ```
-# If you don't have devtools installed, first install it:
-install.packages("devtools")
+You can install UShorrorsite from [GitHub](https://github.com/) with:
 
-# Then install UShorrorsite from GitHub
-devtools::install_github("nsal0017/UShorrorsite")
+# install.packages("devtools")
+devtools::install_github("https://github.com/ETC5523-2024/assignment-4-packages-and-shiny-apps-nsal0017")
 
 ```
+## pkgdown site
+
+You can have a pkgdown site accessible from 
+
 ## Shiny App Overview
 
 The package includes a Shiny app (haunted-app) that allows users to interactively explore the most haunted locations in a selected city. The app provides:
