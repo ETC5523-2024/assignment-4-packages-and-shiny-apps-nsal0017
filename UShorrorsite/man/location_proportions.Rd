@@ -14,9 +14,11 @@ If NULL, it calculates proportions across all cities.}
 }
 \value{
 A data frame with columns:
+\describe{
 \item{location}{The haunted location}
 \item{city}{The specified city (if provided)}
 \item{proportion}{The proportion of hauntings at each location, summing to 1 within each city}
+}
 }
 \description{
 This function takes a data frame of haunted locations and, optionally, a specified city,
@@ -24,16 +26,16 @@ then calculates the proportion of hauntings for each location. If no city is spe
 it calculates proportions for all cities.
 }
 \examples{
-# Create a sample haunted_data dataset
+# Simple example data
 haunted_data <- data.frame(
   city = c("New York", "New York", "Boston", "Boston", "Boston"),
   location = c("Castle", "Mansion", "Cemetery", "Old House", "Tunnel")
 )
 
-# Calculate proportions for Boston
-location_proportions(haunted_data, city = "Boston")
-
-# Calculate proportions across all cities
+# Calculate proportions for all cities
 location_proportions(haunted_data)
+
+# Calculate proportions for a specific city
+location_proportions(haunted_data, city = "Boston")
 
 }
