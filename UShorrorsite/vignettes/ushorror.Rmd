@@ -15,5 +15,93 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+# Load the necessary libraries
 library(UShorrorsite)
+library(dplyr)
+library(ggplot2)
+haunted_data
 ```
+
+
+# Introduction
+# This vignette provides an overview of how to work with the `haunted_data` dataset.
+# Demonstrate some common operations, such as calculating the proportion of hauntings
+# at each location within a city and visualizing the most haunted locations.
+
+#' ## Loading and Inspecting the Data
+```{r}
+
+# Display the first few rows of `haunted_data`
+head(haunted_data)
+```
+
+
+```{r}
+#' ## Calculating Proportions of Hauntings by Location
+
+# We can use the `location_proportions` function to calculate the proportion of hauntings for each location within a specific city.
+# Here’s how to use it for a specific city, say `"Washington"`.
+
+location_proportions(haunted_data, city = "Washington")
+
+# Alternatively, we can calculate proportions across all cities if we want a broader view.
+location_proportions(haunted_data)
+
+```
+
+
+#' ## Visualizing the Most Haunted Locations in a City
+
+```{r}
+# creating a bar plot to visualize the most haunted locations within a selected city.
+# visualize hauntings in `"Washington"`.
+
+# Filter for the selected city
+city_data <- haunted_data %>%
+  filter(city == "Washington") %>%
+  count(location, sort = TRUE)
+
+# Plot the most haunted locations in Washington
+ggplot(city_data, aes(x = reorder(location, n), y = n)) +
+  geom_bar(stat = "identity", fill = "darkred") +
+  coord_flip() +
+  labs(title = "Most Haunted Locations in Washington",
+       x = "Location",
+       y = "Number of Hauntings") +
+  theme_minimal()
+```
+
+
+
+#' ## Summary Statistics for a City
+
+```{r}
+# Calculating some summary statistics, such as the most haunted location, the total number of hauntings,
+# and the average number of hauntings per location in a given city, such as `"Washington"`.
+
+city_data <- haunted_data %>%
+  filter(city == "Washington") %>%
+  count(location, sort = TRUE)
+
+# Most haunted location
+most_haunted <- city_data$location[1]
+
+# Total number of hauntings
+total_hauntings <- sum(city_data$n)
+
+# Average hauntings per location
+avg_hauntings <- mean(city_data$n)
+
+# Display the summary
+cat("Summary for Washington:\n",
+    "- Most haunted location:", most_haunted, "\n",
+    "- Total number of hauntings:", total_hauntings, "\n",
+    "- Average hauntings per location:", round(avg_hauntings, 2), "\n")
+```
+
+
+#' ## Conclusion
+# This vignette has demonstrated basic operations for exploring the `haunted_data` dataset,
+# calculating proportions, and visualizing the most haunted locations. You can use these 
+# techniques to analyze haunted locations in other cities or perform similar operations on similar datasets.
+

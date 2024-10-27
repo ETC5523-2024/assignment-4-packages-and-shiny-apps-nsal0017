@@ -1,4 +1,3 @@
-
 Package: UShorrorsite
 Title: Ghosts in the Data: Mapping America’s Most Haunted Locations
 Version: 0.0.0.9000
@@ -8,7 +7,7 @@ Description: This particular dataset contains nearly 11,000 records of haunted l
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 LazyData: true
